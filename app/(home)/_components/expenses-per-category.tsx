@@ -12,17 +12,17 @@ const ExpensesPerCategory = ({
   expensesPerCategory,
 }: ExpensesPerCategoryProps) => {
   return (
-    <ScrollArea className="col-span-2 h-full rounded-md border pb-6">
+    <ScrollArea className="col-span-2 h-full rounded-md border pb-6 max-h-[400px] sm:max-h-[500px]">
       <CardHeader>
-        <CardTitle className="font-bold">Gastos por Categoria</CardTitle>
+        <CardTitle className="font-bold text-base sm:text-lg">Gastos por Categoria</CardTitle>
       </CardHeader>
 
       <CardContent className="space-y-6">
         {expensesPerCategory.map((category => (
             <div key={category.category} className="space-y-2">
-                <div className="flex w-full justify-between">
-                    <p className="text-sm font-bold">{TRANSACTION_CATEGORY_LABELS[category.category]}</p>
-                    <p className="text-sm font-bold">{category.percentageOfTotal}%</p>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-0">
+                    <p className="text-sm font-medium">{TRANSACTION_CATEGORY_LABELS[category.category]}</p>
+                    <p className="text-sm font-semibold text-right">{category.percentageOfTotal}%</p>
                 </div>
                 <Progress value={category.percentageOfTotal}/>
             </div>
